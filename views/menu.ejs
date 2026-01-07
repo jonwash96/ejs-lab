@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Full Menu</h1>
+    <%- include('./partials/nav') %>
+    <article>
+    <% for (let category of ['Mains', 'Sides', 'Desserts']) { %>
+        <h2><%= category %></h2>
+        <ul id="<%= category %>">
+            <% data.menu.map(item => { if (item.category===category.toLowerCase()) { %>
+                <li>
+                    <h3><%= item.name %></h3>
+                    <h6><em>$<%= item.price %></em></h6>
+                    <p>
+                        <% for (let i=0; i<item.rating; i++) { %>
+                            ⭐️
+                        <% } %>
+                    </p>
+                    <p><%= item.details %></p>
+                </li>
+            <% }}) %>
+        </ul>
+    <% } %>
+    </article>
+</body>
+</html>

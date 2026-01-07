@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | <%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <%- include('./partials/nav') %>
+    <article>
+        <ul>
+            <% data.map(item => { %>
+                <li>
+                    <h3><%= item.name %></h3>
+                    <p><%= item.details %></p>
+                    <% if (item.rating===5) { %>
+                    <span style="font-size:8pt;color:#888;">STAFF FAVORITE!</span>
+                    <% } %>
+                    <p class="stars">
+                        <% for (let i=0; i<item.rating; i++) { %>
+                            ★
+                        <% } %>
+                    </p>
+                    <h6><em>$<%= item.price %></em></h6>
+                </li>
+            <% }) %>
+        </ul>
+        </article>
+</body>
+</html>

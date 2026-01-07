@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= data.name %></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1><%= data.name %></h1>
+    <%- include('./partials/nav.ejs') %>
+    <div id="contact">
+        <h3 style="text-align: center;margin: 4px 0 2em 0">We're Open For Business!<br>Come on in and check us out!</h3>
+        <p>☎️ <%= data.phone %></p>
+        <p>📍 <%= data.address %></p>
+        <p><% data.isOpen ? "Yes, We're Open!" : "Sorry, We're Closed!" %></p>
+    </div>
+</body>
+</html>
